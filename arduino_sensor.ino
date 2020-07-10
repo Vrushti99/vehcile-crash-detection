@@ -10,7 +10,7 @@
 #define WIFIPASS "987654321" //  Wifi Pass
 const int trigP = 2;  //D4 Or GPIO-2 of nodemcu
 const int echoP = 0;  //D3 Or GPIO-0 of nodemcu
-int touch = 5; // d1
+int touch; // d1
 Ubidots client(TOKEN);
 
 
@@ -57,7 +57,7 @@ Serial.print("Distance = ");        //Output distance on arduino serial monitor
  
   client.add("distance", distance);
   client.ubidotsPublish("ultra");
-
+touch=digitalRead(D1);
   if (touch==HIGH)
   {Serial.print("The sensor is touched");
     }
